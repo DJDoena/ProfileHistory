@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Libraries", "_Libraries", "{12C5B551-1775-4B5B-B62E-EA04082EEA10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVDProfilerHelper", "DVDProfilerXML\DVDProfilerHelper\DVDProfilerHelper\DVDProfilerHelper.csproj", "{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVDProfilerXML", "DVDProfilerXML\DVDProfilerXML\DVDProfilerXML.csproj", "{2E90CC6F-892E-45B3-8812-EE52FFA3B222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileHistory", "ProfileHistory\ProfileHistory\ProfileHistory.csproj", "{E087BA7D-E23E-4EB7-B2AB-5FE5B2865814}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x86.ActiveCfg = Debug|x86
+		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Debug|x86.Build.0 = Debug|x86
+		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x86.ActiveCfg = Debug|x86
+		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36}.Release|x86.Build.0 = Debug|x86
+		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x86.ActiveCfg = Debug|x86
+		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Debug|x86.Build.0 = Debug|x86
+		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.ActiveCfg = Debug|x86
+		{2E90CC6F-892E-45B3-8812-EE52FFA3B222}.Release|x86.Build.0 = Debug|x86
+		{E087BA7D-E23E-4EB7-B2AB-5FE5B2865814}.Debug|x86.ActiveCfg = Debug|x86
+		{E087BA7D-E23E-4EB7-B2AB-5FE5B2865814}.Debug|x86.Build.0 = Debug|x86
+		{E087BA7D-E23E-4EB7-B2AB-5FE5B2865814}.Release|x86.ActiveCfg = Release|x86
+		{E087BA7D-E23E-4EB7-B2AB-5FE5B2865814}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{461DACCA-8EBF-4C03-AD1A-C438E4EB3B36} = {12C5B551-1775-4B5B-B62E-EA04082EEA10}
+		{2E90CC6F-892E-45B3-8812-EE52FFA3B222} = {12C5B551-1775-4B5B-B62E-EA04082EEA10}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05E690E2-49D3-4E6A-9259-0DADE6A997F8}
+	EndGlobalSection
+EndGlobal
