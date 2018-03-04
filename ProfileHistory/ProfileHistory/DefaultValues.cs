@@ -28,5 +28,7 @@
             }
             set => _WinMergePath = value;
         }
+
+        public String ProfilesFolder { get; set; }
     }
 }

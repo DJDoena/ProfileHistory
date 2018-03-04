@@ -7,7 +7,6 @@
     using System.IO;
     using System.Text;
     using System.Windows.Forms;
-    using System.Xml;
     using DateTimePickerWithBackColor;
     using DVDProfilerHelper;
     using DVDProfilerXML.Version400;

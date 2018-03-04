@@ -63,7 +63,7 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         /// <summary>
         ///   Looks up a localized string similar to {0}
         ///
-        ///A log file was created under &quot;{1}&quot;. Please send it to karsten@yajirobi.de..
+        ///A log file was created under &quot;{1}&quot;. Please send it to ErrorReport@doena-soft.de..
         /// </summary>
         internal static string CriticalError {
             get {
@@ -77,15 +77,6 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         internal static string CriticalErrorHeader {
             get {
                 return ResourceManager.GetString("CriticalErrorHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The databases have no colliding profiles..
-        /// </summary>
-        internal static string DatabasesAreDifferent {
-            get {
-                return ResourceManager.GetString("DatabasesAreDifferent", resourceCulture);
             }
         }
         
@@ -130,38 +121,20 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The profile folder does not exist..
+        /// </summary>
+        internal static string FolderDoesNotExist {
+            get {
+                return ResourceManager.GetString("FolderDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string InformationHeader {
             get {
                 return ResourceManager.GetString("InformationHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The selected left database file does not exist..
-        /// </summary>
-        internal static string InvalidLeftFileSelected {
-            get {
-                return ResourceManager.GetString("InvalidLeftFileSelected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The selected right database file does not exist..
-        /// </summary>
-        internal static string InvalidRightFileSelected {
-            get {
-                return ResourceManager.GetString("InvalidRightFileSelected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to There are no entries to be exported..
-        /// </summary>
-        internal static string NoEntriesSelected {
-            get {
-                return ResourceManager.GetString("NoEntriesSelected", resourceCulture);
             }
         }
         

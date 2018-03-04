@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CriticalError" xml:space="preserve">
     <value>{0}
@@ -124,9 +124,6 @@ A log file was created under "{1}". Please send it to karsten@yajirobi.de.</valu
   </data>
   <data name="CriticalErrorHeader" xml:space="preserve">
     <value>Schwerwiegender Fehler</value>
-  </data>
-  <data name="DatabasesAreDifferent" xml:space="preserve">
-    <value>Die Datenbanken haben keine kollidierenden Profile.</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Fertig.</value>
@@ -144,17 +141,11 @@ A log file was created under "{1}". Please send it to karsten@yajirobi.de.</valu
 
 {1}</value>
   </data>
+  <data name="FolderDoesNotExist" xml:space="preserve">
+    <value>Der Profilordner existiert nicht.</value>
+  </data>
   <data name="InformationHeader" xml:space="preserve">
     <value>Information</value>
-  </data>
-  <data name="InvalidLeftFileSelected" xml:space="preserve">
-    <value>Die ausgewähle linke Datenbankdatei existiert nicht.</value>
-  </data>
-  <data name="InvalidRightFileSelected" xml:space="preserve">
-    <value>Die ausgewähle rechte Datenbankdatei existiert nicht.</value>
-  </data>
-  <data name="NoEntriesSelected" xml:space="preserve">
-    <value>Es sind keine Einträge zum Exportieren vorhanden.</value>
   </data>
   <data name="WarningHeader" xml:space="preserve">
     <value>Warnung</value>

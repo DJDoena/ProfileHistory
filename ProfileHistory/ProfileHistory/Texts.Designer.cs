@@ -88,15 +88,6 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (current database).
-        /// </summary>
-        internal static string CurrentDatabase {
-            get {
-                return ResourceManager.GetString("CurrentDatabase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to  Entries.
         /// </summary>
         internal static string Entries {
@@ -129,6 +120,24 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         internal static string Parents {
             get {
                 return ResourceManager.GetString("Parents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the folder that contains your historic collection files..
+        /// </summary>
+        internal static string ProfileFolderDialogDescription {
+            get {
+                return ResourceManager.GetString("ProfileFolderDialogDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the WinMerge executable..
+        /// </summary>
+        internal static string WinMergeDialogDescription {
+            get {
+                return ResourceManager.GetString("WinMergeDialogDescription", resourceCulture);
             }
         }
     }
