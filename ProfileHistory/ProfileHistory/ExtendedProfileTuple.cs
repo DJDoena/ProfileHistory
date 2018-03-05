@@ -1,6 +1,7 @@
 ﻿namespace DoenaSoft.DVDProfiler.ProfileHistory
 {
     using System;
+    using System.IO;
     using DVDProfilerHelper;
     using DVDProfilerXML.Version400;
 
@@ -12,13 +13,16 @@
 
             public Int32 HashCode { get; }
 
-            public ExtendedProfileTuple(String fileName, String profileXml)
-                : base(fileName, profileXml)
+            public ExtendedProfileTuple(FileInfo fileInfo, String profileXml)
+                : base(fileInfo, profileXml)
             {
                 CleanedProfileXml = GetCleanedProfile(ProfileXml);
 
                 HashCode = CleanedProfileXml.GetHashCode();
             }
+
+            public ProfileTuple Simplify()
+                => (new ProfileTuple(FileInfo, ProfileXml));
 
             private static String GetCleanedProfile(String rawProfileXml)
             {

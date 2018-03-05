@@ -1,6 +1,4 @@
-﻿using DateTimePickerWithBackColor;
-
-namespace DoenaSoft.DVDProfiler.ProfileHistory
+﻿namespace DoenaSoft.DVDProfiler.ProfileHistory
 {
     partial class DetailsForm
     {
@@ -307,8 +305,8 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
             // 
             // LeftPurchaseDatePicker
             // 
-            this.LeftPurchaseDatePicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.LeftPurchaseDatePicker, "LeftPurchaseDatePicker");
+            this.LeftPurchaseDatePicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.LeftPurchaseDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.LeftPurchaseDatePicker.Name = "LeftPurchaseDatePicker";
             // 
@@ -319,8 +317,8 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
             // 
             // LeftLastEditedPicker
             // 
-            this.LeftLastEditedPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.LeftLastEditedPicker, "LeftLastEditedPicker");
+            this.LeftLastEditedPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.LeftLastEditedPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.LeftLastEditedPicker.Name = "LeftLastEditedPicker";
             // 
@@ -363,8 +361,8 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
             // 
             // LeftProfileTimestampPicker
             // 
-            this.LeftProfileTimestampPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.LeftProfileTimestampPicker, "LeftProfileTimestampPicker");
+            this.LeftProfileTimestampPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.LeftProfileTimestampPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.LeftProfileTimestampPicker.Name = "LeftProfileTimestampPicker";
             // 
@@ -596,15 +594,15 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
             // 
             // RightProfileTimestampPicker
             // 
-            this.RightProfileTimestampPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.RightProfileTimestampPicker, "RightProfileTimestampPicker");
+            this.RightProfileTimestampPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.RightProfileTimestampPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.RightProfileTimestampPicker.Name = "RightProfileTimestampPicker";
             // 
             // RightPurchaseDatePicker
             // 
-            this.RightPurchaseDatePicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.RightPurchaseDatePicker, "RightPurchaseDatePicker");
+            this.RightPurchaseDatePicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.RightPurchaseDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.RightPurchaseDatePicker.Name = "RightPurchaseDatePicker";
             // 
@@ -627,8 +625,8 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
             // 
             // RightLastEditedPicker
             // 
-            this.RightLastEditedPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.RightLastEditedPicker, "RightLastEditedPicker");
+            this.RightLastEditedPicker.BackDisabledColor = System.Drawing.SystemColors.Control;
             this.RightLastEditedPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.RightLastEditedPicker.Name = "RightLastEditedPicker";
             // 
@@ -699,7 +697,7 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button WinMergeButton;
-        private BCDateTimePicker LeftProfileTimestampPicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker LeftProfileTimestampPicker;
         private System.Windows.Forms.TextBox LeftLocalityTextBox;
         private System.Windows.Forms.TextBox LeftOriginalTitleTextBox;
         private System.Windows.Forms.TextBox LeftUpcTextBox;
@@ -710,9 +708,9 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox LeftPurchasePlaceTextBox;
-        private BCDateTimePicker LeftPurchaseDatePicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker LeftPurchaseDatePicker;
         private System.Windows.Forms.Label label6;
-        private BCDateTimePicker LeftLastEditedPicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker LeftLastEditedPicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox LeftPurchasePriceTextBox;
         private System.Windows.Forms.Label label8;
@@ -724,12 +722,12 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox RightLocalityTextBox;
         private System.Windows.Forms.Label label12;
-        private BCDateTimePicker RightProfileTimestampPicker;
-        private BCDateTimePicker RightPurchaseDatePicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker RightProfileTimestampPicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker RightPurchaseDatePicker;
         private System.Windows.Forms.TextBox RightTitleTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox RightPurchasePlaceTextBox;
-        private BCDateTimePicker RightLastEditedPicker;
+        private DateTimePickerWithBackColor.BCDateTimePicker RightLastEditedPicker;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;

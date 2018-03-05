@@ -147,6 +147,12 @@ A log file was created under "{1}". Please send it to ErrorReport@doena-soft.de.
   <data name="InformationHeader" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="NoLeftProfileSelected" xml:space="preserve">
+    <value>Please select a profile on the left side.</value>
+  </data>
+  <data name="NoRightProfileSelected" xml:space="preserve">
+    <value>Please select a profile on the right side.</value>
+  </data>
   <data name="WarningHeader" xml:space="preserve">
     <value>Warning</value>
   </data>

@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
     using DVDProfilerHelper;
     using DVDProfilerXML.Version400;
 
@@ -18,7 +20,7 @@
             _EqualityComparer = new ProfileEqualityComparer();
         }
 
-        internal Dictionary<DVD, IEnumerable<ProfileTuple>> GetChangedProfiles(String path, IntPtr handle)
+        internal Dictionary<DVD, IEnumerable<ProfileTuple>> GetChangedProfiles(String path, Control host)
         {
             _Profiles = new Dictionary<DVD, List<ExtendedProfileTuple>>();
 
@@ -26,16 +28,16 @@
 
             IEnumerable<CollectionTuple> collections = (new CollectionsGetter()).Get(collectionFiles);
 
-            AddProfiles(collections, handle, collectionFiles.Count);
+            AddProfiles(collections, host, collectionFiles.Count);
 
-            Dictionary<DVD, IEnumerable<ProfileTuple>> result = Convert();
+            Dictionary<DVD, IEnumerable<ProfileTuple>> profiles = Convert();
 
-            return (result);
+            return (profiles);
         }
 
-        private void AddProfiles(IEnumerable<CollectionTuple> collections, IntPtr handle, Int32 maximum)
+        private void AddProfiles(IEnumerable<CollectionTuple> collections, Control host, Int32 maximum)
         {
-            using (ProgressBarHandler progress = new ProgressBarHandler(handle))
+            using (ProgressBarHandler progress = new ProgressBarHandler(host))
             {
                 progress.Start(maximum);
 
@@ -56,15 +58,15 @@
 
             foreach (DVD profile in validProfiles)
             {
-                AddProfiles(profile, tuple.FileName);
+                AddProfiles(profile, tuple.FileInfo);
             }
         }
 
-        private void AddProfiles(DVD profile, String fileName)
+        private void AddProfiles(DVD profile, FileInfo fileInfo)
         {
             String rawProfileXml = DVDProfilerSerializer<DVD>.ToString(profile, Collection.DefaultEncoding);
 
-            ExtendedProfileTuple tuple = new ExtendedProfileTuple(fileName, rawProfileXml);
+            ExtendedProfileTuple tuple = new ExtendedProfileTuple(fileInfo, rawProfileXml);
 
             if (_Profiles.TryGetValue(profile, out List<ExtendedProfileTuple> otherVersions) == false)
             {
@@ -81,7 +83,7 @@
 
         private Dictionary<DVD, IEnumerable<ProfileTuple>> Convert()
         {
-            Dictionary<DVD, IEnumerable<ProfileTuple>> result = new Dictionary<DVD, IEnumerable<ProfileTuple>>(_Profiles.Count);
+            Dictionary<DVD, IEnumerable<ProfileTuple>> profiles = new Dictionary<DVD, IEnumerable<ProfileTuple>>(_Profiles.Count);
 
             foreach (KeyValuePair<DVD, List<ExtendedProfileTuple>> kvp in _Profiles)
             {
@@ -91,11 +93,13 @@
 
                     DVD newest = DVDProfilerSerializer<DVD>.FromString(newestXml, Collection.DefaultEncoding);
 
-                    result.Add(newest, kvp.Value.Select(t => new ProfileTuple(t.FileName, t.ProfileXml)).ToList());
+                    IEnumerable<ProfileTuple> profileList = kvp.Value.Select(p => p.Simplify()).ToList();
+
+                    profiles.Add(newest, profileList);
                 }
             }
 
-            return (result);
+            return (profiles);
         }
     }
 }

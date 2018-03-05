@@ -8,27 +8,29 @@
 
         public String WinMergePath
         {
-            get
-            {
-                if (String.IsNullOrEmpty(_WinMergePath))
-                {
-                    String x86Path = Environment.GetEnvironmentVariable("ProgramFiles(x86)");
-
-                    if (String.IsNullOrEmpty(x86Path))
-                    {
-                        return (@"%ProgramFiles%\WinMerge\WinMergeU.exe");
-                    }
-                    else
-                    {
-                        return (@"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe");
-                    }
-                }
-
-                return (_WinMergePath);
-            }
+            get => GetWinMergePath();
             set => _WinMergePath = value;
         }
 
         public String ProfilesFolder { get; set; }
+
+        private String GetWinMergePath()
+        {
+            if (String.IsNullOrEmpty(_WinMergePath))
+            {
+                String x86Path = Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+
+                if (String.IsNullOrEmpty(x86Path))
+                {
+                    return (@"%ProgramFiles%\WinMerge\WinMergeU.exe");
+                }
+                else
+                {
+                    return (@"%ProgramFiles(x86)%\WinMerge\WinMergeU.exe");
+                }
+            }
+
+            return (_WinMergePath);
+        }
     }
 }

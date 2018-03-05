@@ -49,7 +49,7 @@
             }
         }
 
-        private static void TrySetLanguage(string[] args)
+        private static void TrySetLanguage(String[] args)
         {
             String firstArg = args.FirstOrDefault()?.ToLower();
 

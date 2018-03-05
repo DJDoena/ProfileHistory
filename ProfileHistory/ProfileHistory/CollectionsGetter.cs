@@ -19,7 +19,7 @@
         }
 
         private static IEnumerable<CollectionTuple> GetCollections(List<String> files)
-        {            
+        {
             files.Sort(CompareFile);
 
             foreach (String file in files)
@@ -38,7 +38,7 @@
 
             Int32 compare = leftFI.LastWriteTimeUtc.CompareTo(rightFI.LastWriteTimeUtc);
 
-            return compare;
+            return (compare);
         }
 
         private static Collection TryGetCollection(String file)
@@ -54,6 +54,5 @@
                 return (null);
             }
         }
-
     }
 }

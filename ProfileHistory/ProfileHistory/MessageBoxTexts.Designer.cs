@@ -139,6 +139,24 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a profile on the left side..
+        /// </summary>
+        internal static string NoLeftProfileSelected {
+            get {
+                return ResourceManager.GetString("NoLeftProfileSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a profile on the right side..
+        /// </summary>
+        internal static string NoRightProfileSelected {
+            get {
+                return ResourceManager.GetString("NoRightProfileSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string WarningHeader {

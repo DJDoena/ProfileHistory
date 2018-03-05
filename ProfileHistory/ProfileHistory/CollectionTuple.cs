@@ -6,13 +6,13 @@
 
     internal class CollectionTuple
     {
-        public String FileName { get; }
+        public FileInfo FileInfo { get; }
 
         public Collection Collection { get; }
 
         public CollectionTuple(String fileName, Collection collection)
         {
-            FileName = (new FileInfo(fileName)).Name;
+            FileInfo = new FileInfo(fileName);
 
             Collection = collection;
         }

@@ -17,7 +17,7 @@ namespace DateTimePickerWithBackColor
     /// <summary>
     ///     A derivation of DateTimePicker allowing to change background color
     /// </summary>
-    class BCDateTimePicker : System.Windows.Forms.DateTimePicker
+    public class BCDateTimePicker : System.Windows.Forms.DateTimePicker
     {
         private Color _backDisabledColor;
 

@@ -117,49 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CriticalError" xml:space="preserve">
-    <value>{0}
-
-A log file was created under "{1}". Please send it to karsten@yajirobi.de.</value>
+  <data name="Date.Text" xml:space="preserve">
+    <value>Datum</value>
   </data>
-  <data name="CriticalErrorHeader" xml:space="preserve">
-    <value>Schwerwiegender Fehler</value>
+  <data name="Title.Text" xml:space="preserve">
+    <value>Titel</value>
   </data>
-  <data name="Done" xml:space="preserve">
-    <value>Fertig.</value>
+  <data name="CompareButton.Text" xml:space="preserve">
+    <value>Vergleiche Profile</value>
   </data>
-  <data name="ErrorHeader" xml:space="preserve">
-    <value>Error</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 13</value>
   </data>
-  <data name="FileCantBeRead" xml:space="preserve">
-    <value>"{0}" konnte nicht gelesen werden.
-
-{1}</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Bitte wähle ein Profile aus jeder Box zum Vergleich aus:</value>
   </data>
-  <data name="FileCantBeWritten" xml:space="preserve">
-    <value>"{0}" konnte nicht geschrieben werden.
-
-{1}</value>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAQAAAABADoAgAAJgAAABAQEAAAAAQAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAAAC
+        AAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
+        AAAA//8A/wAAAP8A/wD//wAA////AIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
+        iIiIiIiIiIiIiIiIiIiIiIiIiIgAAACIiIiIiIiIiIiIiIiAAAAACIiIiIiIiIiIiIiIAAAAAACIiIiI
+        iIiIiIiIiAAIiIAACIiIiIiIiIiIiIgACIiIAAiIiIiIiIiIiIiIiIiIiAAIiIiIiIiIiIiIiIiAAAAA
+        CIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIgAAAAAiIiIiIiIiIiIiIiIAAiIiIiIiIiIiIiIiIiIiA
+        AIiIiIiIiIiAAAAIiIiIiAAIiIiIiIiAAAAAAAiIiIgAAAAAiIiIgAAAAAAAiIiIgAAAAIiIiIAAiIgA
+        AIiIiIgAAAiIiIiAAIiIgAAIiIiIiIiIiIiIgACIiIgACIiIiIiIiIiIiIAAiIiIAAiIiIiIiIiIiIiA
+        AIiIiAAIiIiIiIiIiIiIgACIiIAACIiIiIiIiIiIiIAAiIiAAIiIiIiIiIiIiIiAAIiAAAiIiIiIiIiI
+        iIiIgACAAACIiIiIiIiIiIiIiIAAAAAIiIiIiIiIiIiIiIiAAACIiIiIiIiIiIiIiIiIgACIiIiIiIiI
+        iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAoAAAAEAAAACAAAAABAAQAAAAAAIAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAMDAwACAgIAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AHd3d3d3d3d3d3d3d3AA
+        B3d3d3d3AAAAB3d3d3cHd3AHd3d3d3cAAAd3d3d3cAAAd3d3d3dwB3d3cAAHd3cAAHdwAAB3d3AAd3AH
+        cAd3d3d3cAdwB3d3d3dwB3AHd3d3d3AHAHd3d3d3cAAAd3d3d3dwAHd3d3d3d3d3d3d3d3d3AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
   </data>
-  <data name="FolderDoesNotExist" xml:space="preserve">
-    <value>Der Profilordner existiert nicht.</value>
-  </data>
-  <data name="InformationHeader" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="NoLeftProfileSelected" xml:space="preserve">
-    <value>Bitte wähle ein Profil auf der linken Seite aus.</value>
-  </data>
-  <data name="NoRightProfileSelected" xml:space="preserve">
-    <value>Bitte wähle ein Profil auf der rechten Seite aus.</value>
-  </data>
-  <data name="WarningHeader" xml:space="preserve">
-    <value>Warnung</value>
-  </data>
-  <data name="WinMergeMissingError" xml:space="preserve">
-    <value>Konnte WinMerge nicht starten. Bitte stellen Sie sicher, dass WinMerge installiert und der korrekte Ordner ausgewählt wurde. </value>
-  </data>
-  <data name="WinMergeMissingWarning" xml:space="preserve">
-    <value>WinMerge konnte nicht gefunden werden. Es wird nur ein Basis-Vergleich möglich sein.</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Vergleiche</value>
   </data>
 </root>

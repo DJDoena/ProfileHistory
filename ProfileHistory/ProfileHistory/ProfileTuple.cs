@@ -5,13 +5,13 @@
 
     internal class ProfileTuple
     {
-        public String FileName { get; }
+        public FileInfo FileInfo { get; }
 
         public String ProfileXml { get; }
 
-        public ProfileTuple(String fileName, String profileXml)
+        public ProfileTuple(FileInfo fileInfo, String profileXml)
         {
-            FileName = (new FileInfo(fileName)).Name;
+            FileInfo = fileInfo;
 
             ProfileXml = profileXml;
         }

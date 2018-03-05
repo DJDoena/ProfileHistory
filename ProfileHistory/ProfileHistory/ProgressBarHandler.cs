@@ -9,11 +9,11 @@
     {
         private readonly ProgressWindow _ProgressWindow;
 
-        private readonly IntPtr _Handle;
+        private readonly Control _Host;
 
-        public ProgressBarHandler(IntPtr handle)
+        public ProgressBarHandler(Control host)
         {
-            _Handle = handle;
+            _Host = host;
 
             _ProgressWindow = new ProgressWindow();
             _ProgressWindow.ProgressBar.Minimum = 0;
@@ -22,21 +22,39 @@
 
         public void Start(Int32 maximum)
         {
+            _Host.Invoke(new Action(() => StartInternal(maximum)));
+        }
+        
+        public void Update()
+        {
+            _Host.Invoke(new Action(UpdateInternal));
+        }
+
+        public void Close()
+        {
+            _Host.Invoke(new Action(CloseInternal));
+}
+
+        public void Dispose()
+        {
+            _ProgressWindow.Dispose();
+        }
+
+        private void StartInternal(Int32 maximum)
+        {
             _ProgressWindow.ProgressBar.Maximum = maximum;
             _ProgressWindow.CanClose = false;
             _ProgressWindow.Show();
 
             if (TaskbarManager.IsPlatformSupported)
             {
-                TaskbarManager.Instance.OwnerHandle = _Handle;
+                TaskbarManager.Instance.OwnerHandle = _Host.Handle;
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
                 TaskbarManager.Instance.SetProgressValue(0, _ProgressWindow.ProgressBar.Maximum);
             }
-
-            Application.DoEvents();
         }
 
-        public void Update()
+        private void UpdateInternal()
         {
             _ProgressWindow.ProgressBar.PerformStep();
 
@@ -44,11 +62,9 @@
             {
                 TaskbarManager.Instance.SetProgressValue(_ProgressWindow.ProgressBar.Value, _ProgressWindow.ProgressBar.Maximum);
             }
-
-            Application.DoEvents();
         }
 
-        public void Close()
+        private void CloseInternal()
         {
             if (TaskbarManager.IsPlatformSupported)
             {
@@ -58,11 +74,6 @@
 
             _ProgressWindow.CanClose = true;
             _ProgressWindow.Close();
-        }
-
-        public void Dispose()
-        {
-            _ProgressWindow.Dispose();
         }
     }
 }

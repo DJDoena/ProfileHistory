@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
     using System.Threading;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using DVDProfilerHelper;
     using DVDProfilerXML.Version400;
@@ -91,12 +93,50 @@
 
         private void OnCheckProfileHistoryButtonClick(Object sender, EventArgs e)
         {
+            ProfileListView.Items.Clear();
+            
             if (CheckPreconditions() == false)
             {
                 return;
             }
 
-            Dictionary<DVD, IEnumerable<ProfileTuple>> changedProfiles = (new ProfileProcessor()).GetChangedProfiles(ProfileFolderTextBox.Text, Handle);
+            Enabled = false;
+
+            GC.Collect(GC.MaxGeneration);
+
+            String profileFolder = ProfileFolderTextBox.Text;
+
+            Task<Dictionary<DVD, IEnumerable<ProfileTuple>>> task = Task.Run(() => (new ProfileProcessor()).GetChangedProfiles(profileFolder, this));
+
+            task.ContinueWith(t => Invoke(new Action(() => UpdateUI(t.Result))));
+        }
+
+        private void UpdateUI(Dictionary<DVD, IEnumerable<ProfileTuple>> changedProfiles)
+        {
+            AddRows(changedProfiles);
+
+            GC.Collect(GC.MaxGeneration);
+
+            Enabled = true;            
+        }
+
+        private void AddRows(Dictionary<DVD, IEnumerable<ProfileTuple>> profiles)
+        {
+            ListViewItem[] rows = profiles.Select(AddRow).ToArray();
+
+            ProfileListView.Items.AddRange(rows);
+        }
+
+        private ListViewItem AddRow(KeyValuePair<DVD, IEnumerable<ProfileTuple>> profile)
+        {
+            String[] cells = new[] { profile.Key.SortTitle, profile.Key.Title, profile.Key.UPC, profile.Key.ID_LocalityDesc };
+
+            ListViewItem row = new ListViewItem(cells)
+            {
+                Tag = profile.Value
+            };
+
+            return (row);
         }
 
         private Boolean CheckPreconditions()
@@ -121,6 +161,23 @@
             ProfileFolderTextBox.Text = Program.Settings.DefaultValues.ProfilesFolder;
 
             WinMergeTextBox.Text = Program.Settings.DefaultValues.WinMergePath;
+        }
+
+        private void OnListViewDoubleClick(Object sender, EventArgs e)
+        {
+            if (ProfileListView.SelectedIndices.Count < 1)
+            {
+                return;
+            }
+
+            Int32 selectedIndex = ProfileListView.SelectedIndices[0];
+
+            IEnumerable<ProfileTuple> profiles = (IEnumerable<ProfileTuple>)(ProfileListView.Items[selectedIndex].Tag);
+
+            using (CompareForm form = new CompareForm(profiles))
+            {
+                form.ShowDialog();
+            }
         }
     }
 }
