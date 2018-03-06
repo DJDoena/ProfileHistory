@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ColumnHeader Date;
+            System.Windows.Forms.ColumnHeader LeftDate;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompareForm));
-            System.Windows.Forms.ColumnHeader Title;
-            System.Windows.Forms.ColumnHeader columnHeader1;
-            System.Windows.Forms.ColumnHeader columnHeader2;
+            System.Windows.Forms.ColumnHeader LeftTitle;
+            System.Windows.Forms.ColumnHeader RightDate;
+            System.Windows.Forms.ColumnHeader RightTitle;
             this.LeftListView = new System.Windows.Forms.ListView();
             this.RightListView = new System.Windows.Forms.ListView();
             this.CompareButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            LeftDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            LeftTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            RightDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            RightTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // Date
+            // LeftDate
             // 
-            resources.ApplyResources(Date, "Date");
+            resources.ApplyResources(LeftDate, "LeftDate");
             // 
-            // Title
+            // LeftTitle
             // 
-            resources.ApplyResources(Title, "Title");
+            resources.ApplyResources(LeftTitle, "LeftTitle");
             // 
-            // columnHeader1
+            // RightDate
             // 
-            resources.ApplyResources(columnHeader1, "columnHeader1");
+            resources.ApplyResources(RightDate, "RightDate");
             // 
-            // columnHeader2
+            // RightTitle
             // 
-            resources.ApplyResources(columnHeader2, "columnHeader2");
+            resources.ApplyResources(RightTitle, "RightTitle");
             // 
             // LeftListView
             // 
-            resources.ApplyResources(this.LeftListView, "LeftListView");
             this.LeftListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            Date,
-            Title});
+            LeftDate,
+            LeftTitle});
             this.LeftListView.FullRowSelect = true;
             this.LeftListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LeftListView.HideSelection = false;
+            resources.ApplyResources(this.LeftListView, "LeftListView");
             this.LeftListView.MultiSelect = false;
             this.LeftListView.Name = "LeftListView";
             this.LeftListView.UseCompatibleStateImageBehavior = false;
@@ -75,13 +75,13 @@
             // 
             // RightListView
             // 
-            resources.ApplyResources(this.RightListView, "RightListView");
             this.RightListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            columnHeader1,
-            columnHeader2});
+            RightDate,
+            RightTitle});
             this.RightListView.FullRowSelect = true;
             this.RightListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.RightListView.HideSelection = false;
+            resources.ApplyResources(this.RightListView, "RightListView");
             this.RightListView.MultiSelect = false;
             this.RightListView.Name = "RightListView";
             this.RightListView.UseCompatibleStateImageBehavior = false;
