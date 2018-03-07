@@ -15,6 +15,12 @@
         {
             InitializeComponent();
 
+            String profileXml = profiles.First().ProfileXml;
+
+            DVD profile = DVDProfilerSerializer<DVD>.FromString(profileXml, Collection.DefaultEncoding);
+
+            Text += ": " + profile.Title;
+
             AddRows(LeftListView, profiles);
             AddRows(RightListView, profiles);
         }
