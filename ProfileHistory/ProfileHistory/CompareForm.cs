@@ -75,7 +75,7 @@
 
             String xml = (String)(listView.Items[selectedIndex].Tag);
 
-            DVD dvd = DVDProfilerSerializer<DVD>.FromString(xml);
+            DVD dvd = DVDProfilerSerializer<DVD>.FromString(xml, Collection.DefaultEncoding);
 
             return (dvd);
         }

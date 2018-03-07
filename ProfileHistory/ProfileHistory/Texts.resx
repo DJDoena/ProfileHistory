@@ -132,6 +132,9 @@
   <data name="Entry" xml:space="preserve">
     <value> Entry</value>
   </data>
+  <data name="FilterListDialogDescription" xml:space="preserve">
+    <value>Please select a filter file.</value>
+  </data>
   <data name="Parent" xml:space="preserve">
     <value> Parent</value>
   </data>

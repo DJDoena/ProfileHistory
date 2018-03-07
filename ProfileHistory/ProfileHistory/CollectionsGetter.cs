@@ -9,7 +9,7 @@
 
     internal sealed class CollectionsGetter
     {
-        internal IEnumerable<CollectionTuple> Get(List<String> files)
+        internal IEnumerable<CollectionTuple> Get(IEnumerable<String> files)
         {
             IEnumerable<CollectionTuple> collections = GetCollections(files);
 
@@ -18,10 +18,8 @@
             return (validCollections);
         }
 
-        private static IEnumerable<CollectionTuple> GetCollections(List<String> files)
+        private static IEnumerable<CollectionTuple> GetCollections(IEnumerable<String> files)
         {
-            files.Sort(CompareFile);
-
             foreach (String file in files)
             {
                 Collection collection = TryGetCollection(file);
@@ -30,18 +28,7 @@
             }
         }
 
-        private static Int32 CompareFile(String left, String right)
-        {
-            FileInfo leftFI = new FileInfo(left);
-
-            FileInfo rightFI = new FileInfo(right);
-
-            Int32 compare = leftFI.LastWriteTimeUtc.CompareTo(rightFI.LastWriteTimeUtc);
-
-            return (compare);
-        }
-
-        private static Collection TryGetCollection(String file)
+        internal static Collection TryGetCollection(String file)
         {
             try
             {

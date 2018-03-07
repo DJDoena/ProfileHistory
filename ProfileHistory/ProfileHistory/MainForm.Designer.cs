@@ -50,6 +50,11 @@
             this.CheckProfileHistoryButton = new System.Windows.Forms.Button();
             this.ProfileListView = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
+            this.IgnoreRemovedProfilesCheckBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SelectFilterListButton = new System.Windows.Forms.Button();
+            this.FilterListTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             SortTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             UPC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -188,10 +193,46 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // IgnoreRemovedProfilesCheckBox
+            // 
+            resources.ApplyResources(this.IgnoreRemovedProfilesCheckBox, "IgnoreRemovedProfilesCheckBox");
+            this.IgnoreRemovedProfilesCheckBox.Checked = true;
+            this.IgnoreRemovedProfilesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IgnoreRemovedProfilesCheckBox.Name = "IgnoreRemovedProfilesCheckBox";
+            this.IgnoreRemovedProfilesCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // SelectFilterListButton
+            // 
+            resources.ApplyResources(this.SelectFilterListButton, "SelectFilterListButton");
+            this.SelectFilterListButton.Name = "SelectFilterListButton";
+            this.SelectFilterListButton.UseVisualStyleBackColor = true;
+            this.SelectFilterListButton.Click += new System.EventHandler(this.OnSelectFilterListButtonClick);
+            // 
+            // FilterListTextBox
+            // 
+            resources.ApplyResources(this.FilterListTextBox, "FilterListTextBox");
+            this.FilterListTextBox.Name = "FilterListTextBox";
+            this.FilterListTextBox.ReadOnly = true;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.FilterListTextBox);
+            this.Controls.Add(this.SelectFilterListButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.IgnoreRemovedProfilesCheckBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ProfileListView);
             this.Controls.Add(this.CheckProfileHistoryButton);
@@ -232,6 +273,11 @@
         private System.Windows.Forms.Button CheckProfileHistoryButton;
         private System.Windows.Forms.ListView ProfileListView;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox IgnoreRemovedProfilesCheckBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button SelectFilterListButton;
+        private System.Windows.Forms.TextBox FilterListTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }
 

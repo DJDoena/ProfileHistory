@@ -106,6 +106,15 @@ namespace DoenaSoft.DVDProfiler.ProfileHistory {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a filter file..
+        /// </summary>
+        internal static string FilterListDialogDescription {
+            get {
+                return ResourceManager.GetString("FilterListDialogDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  Parent.
         /// </summary>
         internal static string Parent {

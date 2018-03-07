@@ -94,7 +94,7 @@
         private void OnCheckProfileHistoryButtonClick(Object sender, EventArgs e)
         {
             ProfileListView.Items.Clear();
-            
+
             if (CheckPreconditions() == false)
             {
                 return;
@@ -104,9 +104,18 @@
 
             GC.Collect(GC.MaxGeneration);
 
+            GetChangedProfiles();
+        }
+
+        private void GetChangedProfiles()
+        {
+            Boolean ignoreOldProfiles = IgnoreRemovedProfilesCheckBox.Checked;
+
             String profileFolder = ProfileFolderTextBox.Text;
 
-            Task<Dictionary<DVD, IEnumerable<ProfileTuple>>> task = Task.Run(() => (new ProfileProcessor()).GetChangedProfiles(profileFolder, this));
+            String filterFile = FilterListTextBox.Text;
+
+            Task<Dictionary<DVD, IEnumerable<ProfileTuple>>> task = Task.Run(() => (new ProfileProcessor(ignoreOldProfiles, filterFile)).GetChangedProfiles(profileFolder, this));
 
             task.ContinueWith(t => Invoke(new Action(() => UpdateUI(t.Result))));
         }
@@ -117,7 +126,7 @@
 
             GC.Collect(GC.MaxGeneration);
 
-            Enabled = true;            
+            Enabled = true;
         }
 
         private void AddRows(Dictionary<DVD, IEnumerable<ProfileTuple>> profiles)
@@ -177,6 +186,23 @@
             using (CompareForm form = new CompareForm(profiles))
             {
                 form.ShowDialog();
+            }
+        }
+
+        private void OnSelectFilterListButtonClick(Object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = Texts.FilterListDialogDescription;
+                ofd.Filter = "Flag Set List|*.lst";
+                ofd.CheckFileExists = true;
+                ofd.Multiselect = false;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    FilterListTextBox.Text = ofd.FileName;
+                }
             }
         }
     }

@@ -233,6 +233,7 @@
             Int32 leftLength = leftList?.Length ?? 0;
             Int32 rightLength = rightList?.Length ?? 0;
 
+            WriteEntry(leftLength, leftTextBox);
             WriteEntry(rightLength, rightTextBox);
 
             if (leftLength != rightLength)

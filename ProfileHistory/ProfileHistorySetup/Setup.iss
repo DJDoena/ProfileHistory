@@ -1,7 +1,7 @@
 [Setup]
 AppName=DVD Profiler Profile History
 AppId=ProfileHistory
-AppVerName=DVD Profiler Profile History 1.0.0.0
+AppVerName=DVD Profiler Profile History 1.0.1.0
 AppCopyright=Copyright © Doena Soft. 2018
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
@@ -22,7 +22,7 @@ ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
 VersionInfoCopyright=2018
 VersionInfoDescription=DVD Profiler Profile History Setup
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.0.1.0
 UninstallDisplayIcon={app}\djdsoft.ico
 
 [Languages]
