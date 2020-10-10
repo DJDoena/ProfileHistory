@@ -1,11 +1,11 @@
 [Setup]
 AppName=DVD Profiler Profile History
 AppId=ProfileHistory
-AppVerName=DVD Profiler Profile History 1.0.1.1
-AppCopyright=Copyright © Doena Soft. 2018
+AppVerName=DVD Profiler Profile History 1.0.1.3
+AppCopyright=Copyright © Doena Soft. 2018 - 2020
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
-DefaultDirName={pf32}\Doena Soft.\ProfileHistory
+DefaultDirName={commonpf32}\Doena Soft.\ProfileHistory
 DefaultGroupName=DVD Profiler Profile History
 DirExistsWarning=No
 SourceDir=..\ProfileHistory\bin\x64\ProfileHistory
@@ -13,16 +13,16 @@ Compression=zip/9
 AppMutex=InvelosDVDPro
 OutputBaseFilename=ProfileHistorySetup
 OutputDir=..\..\..\..\ProfileHistorySetup\Setup\ProfileHistory
-MinVersion=0,5.1
+MinVersion=0,6.0
 PrivilegesRequired=admin
 WizardImageFile=compiler:wizmodernimage-is.bmp
 WizardSmallImageFile=compiler:wizmodernsmallimage-is.bmp
 DisableReadyPage=yes
 ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
-VersionInfoCopyright=2018
+VersionInfoCopyright=2018 - 2020
 VersionInfoDescription=DVD Profiler Profile History Setup
-VersionInfoVersion=1.0.1.1
+VersionInfoVersion=1.0.1.3
 UninstallDisplayIcon={app}\djdsoft.ico
 
 [Languages]

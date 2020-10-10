@@ -30,44 +30,44 @@
         {
             System.Windows.Forms.ColumnHeader LeftDate;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompareForm));
-            System.Windows.Forms.ColumnHeader LeftTitle;
+            System.Windows.Forms.ColumnHeader LeftFileName;
             System.Windows.Forms.ColumnHeader RightDate;
-            System.Windows.Forms.ColumnHeader RightTitle;
+            System.Windows.Forms.ColumnHeader RightFileName;
             this.LeftListView = new System.Windows.Forms.ListView();
             this.RightListView = new System.Windows.Forms.ListView();
             this.CompareButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             LeftDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            LeftTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            LeftFileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             RightDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            RightTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            RightFileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // LeftDate
             // 
             resources.ApplyResources(LeftDate, "LeftDate");
             // 
-            // LeftTitle
+            // LeftFileName
             // 
-            resources.ApplyResources(LeftTitle, "LeftTitle");
+            resources.ApplyResources(LeftFileName, "LeftFileName");
             // 
             // RightDate
             // 
             resources.ApplyResources(RightDate, "RightDate");
             // 
-            // RightTitle
+            // RightFileName
             // 
-            resources.ApplyResources(RightTitle, "RightTitle");
+            resources.ApplyResources(RightFileName, "RightFileName");
             // 
             // LeftListView
             // 
+            resources.ApplyResources(this.LeftListView, "LeftListView");
             this.LeftListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             LeftDate,
-            LeftTitle});
+            LeftFileName});
             this.LeftListView.FullRowSelect = true;
             this.LeftListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LeftListView.HideSelection = false;
-            resources.ApplyResources(this.LeftListView, "LeftListView");
             this.LeftListView.MultiSelect = false;
             this.LeftListView.Name = "LeftListView";
             this.LeftListView.UseCompatibleStateImageBehavior = false;
@@ -75,13 +75,13 @@
             // 
             // RightListView
             // 
+            resources.ApplyResources(this.RightListView, "RightListView");
             this.RightListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             RightDate,
-            RightTitle});
+            RightFileName});
             this.RightListView.FullRowSelect = true;
             this.RightListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.RightListView.HideSelection = false;
-            resources.ApplyResources(this.RightListView, "RightListView");
             this.RightListView.MultiSelect = false;
             this.RightListView.Name = "RightListView";
             this.RightListView.UseCompatibleStateImageBehavior = false;
