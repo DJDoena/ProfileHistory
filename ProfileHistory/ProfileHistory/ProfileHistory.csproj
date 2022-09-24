@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>DJDSOFT.ICO</ApplicationIcon>
@@ -113,20 +115,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DVDProfilerXML\DVDProfilerHelper\DVDProfilerHelper\DVDProfilerHelper.csproj">
-      <Project>{461dacca-8ebf-4c03-ad1a-c438e4eb3b36}</Project>
-      <Name>DVDProfilerHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DVDProfilerXML\DVDProfilerXML\DVDProfilerXML.csproj">
-      <Project>{2e90cc6f-892e-45b3-8812-ee52ffa3b222}</Project>
-      <Name>DVDProfilerXML</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Microsoft.WindowsAPICodePack\Shell\Shell.csproj">
-      <Project>{AA0C00CB-8699-4F37-BFAE-40CA87ACC06D}</Project>
-      <Name>Shell</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="CompareForm.de.resx">
       <DependentUpon>CompareForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,8 +148,17 @@
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DoenaSoft.DVDProfilerXML">
+      <Version>4.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="DoenaSoft.WindowsAPICodePack">
+      <Version>1.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"%25ProgramFiles%25\Inno Setup 6\iscc.exe"  ..\..\..\..\ProfileHistorySetup\Setup.iss</PostBuildEvent>
+    <PostBuildEvent>copy /y ..\..\..\djdsoft.ico .
+"%25ProgramFiles(x86)%25\Inno Setup 6\iscc.exe"  ..\..\..\..\ProfileHistorySetup\Setup.iss</PostBuildEvent>
   </PropertyGroup>
 </Project>

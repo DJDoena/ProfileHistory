@@ -2,7 +2,7 @@
 AppName=DVD Profiler Profile History
 AppId=ProfileHistory
 AppVerName=DVD Profiler Profile History 1.0.1.3
-AppCopyright=Copyright © Doena Soft. 2018 - 2020
+AppCopyright=Copyright © Doena Soft. 2018 - 2022
 AppPublisher=Doena Soft.
 AppPublisherURL=http://doena-journal.net/en/dvd-profiler-tools/
 DefaultDirName={commonpf32}\Doena Soft.\ProfileHistory
@@ -13,14 +13,13 @@ Compression=zip/9
 AppMutex=InvelosDVDPro
 OutputBaseFilename=ProfileHistorySetup
 OutputDir=..\..\..\..\ProfileHistorySetup\Setup\ProfileHistory
-MinVersion=0,6.0
+MinVersion=0,6.1sp1
 PrivilegesRequired=admin
-WizardImageFile=compiler:wizmodernimage-is.bmp
-WizardSmallImageFile=compiler:wizmodernsmallimage-is.bmp
+WizardStyle=modern
 DisableReadyPage=yes
 ShowLanguageDialog=no
 VersionInfoCompany=Doena Soft.
-VersionInfoCopyright=2018 - 2020
+VersionInfoCopyright=2018 - 2022
 VersionInfoDescription=DVD Profiler Profile History Setup
 VersionInfoVersion=1.0.1.3
 UninstallDisplayIcon={app}\djdsoft.ico
@@ -36,16 +35,15 @@ Name: "full"; Description: "Full installation"
 
 [Files]
 Source: "djdsoft.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerHelper.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DVDProfilerXML.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfilerHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.DVDProfilerXML.dll"; DestDir: "{app}"; Flags: ignoreversion
+
 Source: "ProfileHistory.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ProfileHistory.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.WindowsAPICodePack.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DoenaSoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "de\DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
+Source: "de\DoenaSoft.DVDProfilerHelper.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 Source: "de\ProfileHistory.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 
 ;Source: "ReadMe\readme.html"; DestDir: "{app}\ReadMe"; Flags: ignoreversion
