@@ -2,9 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
-    using DVDProfilerHelper;
+    using DoenaSoft.ToolBox.Generics;
     using DVDProfilerXML.Version400;
 
     internal sealed class CollectionsGetter
@@ -32,7 +31,7 @@
         {
             try
             {
-                Collection collection = DVDProfilerSerializer<Collection>.Deserialize(file);
+                Collection collection = XmlSerializer<Collection>.Deserialize(file);
 
                 return (collection);
             }

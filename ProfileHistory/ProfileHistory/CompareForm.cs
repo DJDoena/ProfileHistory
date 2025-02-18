@@ -6,28 +6,28 @@
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
-    using DVDProfilerHelper;
+    using DoenaSoft.ToolBox.Generics;
     using DVDProfilerXML.Version400;
 
     internal partial class CompareForm : Form
     {
         public CompareForm(IEnumerable<ProfileTuple> profiles)
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             String profileXml = profiles.First().ProfileXml;
 
-            DVD profile = DVDProfilerSerializer<DVD>.FromString(profileXml, Collection.DefaultEncoding);
+            DVD profile = XmlSerializer<DVD>.FromString(profileXml, Collection.DefaultEncoding);
 
-            Text += ": " + profile.Title;
+            this.Text += ": " + profile.Title;
 
-            AddRows(LeftListView, profiles);
-            AddRows(RightListView, profiles);
+            this.AddRows(LeftListView, profiles);
+            this.AddRows(RightListView, profiles);
         }
 
         private void AddRows(ListView listView, IEnumerable<ProfileTuple> profiles)
         {
-            ListViewItem[] rows = profiles.Select(AddRow).ToArray();
+            ListViewItem[] rows = profiles.Select(this.AddRow).ToArray();
 
             listView.Items.AddRange(rows);
         }
@@ -81,7 +81,7 @@
 
             String xml = (String)(listView.Items[selectedIndex].Tag);
 
-            DVD dvd = DVDProfilerSerializer<DVD>.FromString(xml, Collection.DefaultEncoding);
+            DVD dvd = XmlSerializer<DVD>.FromString(xml, Collection.DefaultEncoding);
 
             return (dvd);
         }

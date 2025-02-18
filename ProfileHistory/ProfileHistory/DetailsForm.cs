@@ -8,7 +8,7 @@
     using System.Text;
     using System.Windows.Forms;
     using DateTimePickerWithBackColor;
-    using DVDProfilerHelper;
+    using DoenaSoft.ToolBox.Generics;
     using DVDProfilerXML.Version400;
 
     public partial class DetailsForm : Form
@@ -19,7 +19,7 @@
 
         public DetailsForm(DVD leftDvd, DVD rightDvd)
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             CultureInfo ci = CultureInfo.CurrentCulture;
 
@@ -80,13 +80,13 @@
 
             FillCrewTextBox(leftIsNewer, leftDvd.CrewList, rightDvd.CrewList, LeftCrewTextBox, RightCrewTextBox);
 
-            FillEventsTextBox(leftIsNewer, leftDvd, rightDvd, LeftEventsTextBox, RightEventsTextBox);
+            this.FillEventsTextBox(leftIsNewer, leftDvd, rightDvd, LeftEventsTextBox, RightEventsTextBox);
 
-            FillTagsTextBox(leftIsNewer, leftDvd, rightDvd, LeftTagsTextBox, RightTagsTextBox);
+            this.FillTagsTextBox(leftIsNewer, leftDvd, rightDvd, LeftTagsTextBox, RightTagsTextBox);
 
-            FillMyLinksTextBox(leftIsNewer, leftDvd, rightDvd, LeftMyLinksTextBox, RightMyLinksTextBox);
+            this.FillMyLinksTextBox(leftIsNewer, leftDvd, rightDvd, LeftMyLinksTextBox, RightMyLinksTextBox);
 
-            FillBoxSetTextBox(leftIsNewer, leftDvd, rightDvd, LeftBoxSetTextBox, RightBoxSetTextBox);
+            this.FillBoxSetTextBox(leftIsNewer, leftDvd, rightDvd, LeftBoxSetTextBox, RightBoxSetTextBox);
         }
 
         private static Boolean PurchaseDateIsSpecified(DVD leftDvd)
@@ -103,15 +103,15 @@
             GetBoxSetContent(leftDvd, out String leftBoxSetParent, out Int32 leftBoxSetParentCount, out String[] leftBoxSetContents, out Int32 leftBoxSetContentsLength);
             GetBoxSetContent(rightDvd, out String rightBoxSetParent, out Int32 rightBoxSetParentCount, out String[] rightBoxSetContents, out Int32 rightBoxSetContentsLength);
 
-            WriteBoxSetEntry(leftBoxSetParentCount, leftBoxSetContentsLength, leftTextBox);
-            WriteBoxSetEntry(rightBoxSetParentCount, rightBoxSetContentsLength, rightTextBox);
+            this.WriteBoxSetEntry(leftBoxSetParentCount, leftBoxSetContentsLength, leftTextBox);
+            this.WriteBoxSetEntry(rightBoxSetParentCount, rightBoxSetContentsLength, rightTextBox);
             ColourizeTextBox(leftIsNewer, leftTextBox, rightTextBox);
 
             if ((leftBoxSetParentCount == rightBoxSetParentCount) && (leftBoxSetContentsLength == rightBoxSetContentsLength))
             {
-                String leftBoxSet = DVDProfilerSerializer<BoxSet>.ToString(leftDvd.BoxSet ?? new BoxSet());
+                String leftBoxSet = XmlSerializer<BoxSet>.ToString(leftDvd.BoxSet ?? new BoxSet());
 
-                String rightBoxSet = DVDProfilerSerializer<BoxSet>.ToString(rightDvd.BoxSet ?? new BoxSet());
+                String rightBoxSet = XmlSerializer<BoxSet>.ToString(rightDvd.BoxSet ?? new BoxSet());
 
                 CheckListSpecific(leftIsNewer, leftBoxSet, rightBoxSet, leftTextBox, rightTextBox);
             }
@@ -164,8 +164,8 @@
 
             if (CheckListInGeneral(leftIsNewer, leftMyLinkList, rightMyLinkList, leftTextBox, rightTextBox))
             {
-                String leftMyLinks = DVDProfilerSerializer<MyLinks>.ToString(leftDvd.MyLinks ?? new MyLinks());
-                String rightMyLinks = DVDProfilerSerializer<MyLinks>.ToString(rightDvd.MyLinks ?? new MyLinks());
+                String leftMyLinks = XmlSerializer<MyLinks>.ToString(leftDvd.MyLinks ?? new MyLinks());
+                String rightMyLinks = XmlSerializer<MyLinks>.ToString(rightDvd.MyLinks ?? new MyLinks());
 
                 CheckListSpecific(leftIsNewer, leftMyLinks, rightMyLinks, leftTextBox, rightTextBox);
             }
@@ -175,9 +175,9 @@
         {
             if (CheckListInGeneral(leftIsNewer, leftDvd.TagList, rightDvd.TagList, leftTextBox, rightTextBox))
             {
-                String leftTags = DVDProfilerSerializer<Tags>.ToString(new Tags() { TagList = leftDvd.TagList });
+                String leftTags = XmlSerializer<Tags>.ToString(new Tags() { TagList = leftDvd.TagList });
 
-                String rightTags = DVDProfilerSerializer<Tags>.ToString(new Tags() { TagList = rightDvd.TagList });
+                String rightTags = XmlSerializer<Tags>.ToString(new Tags() { TagList = rightDvd.TagList });
 
                 CheckListSpecific(leftIsNewer, leftTags, rightTags, leftTextBox, rightTextBox);
             }
@@ -187,9 +187,9 @@
         {
             if (CheckListInGeneral(leftIsNewer, leftDvd.EventList, rightDvd.EventList, leftTextBox, rightTextBox))
             {
-                String leftEvents = DVDProfilerSerializer<Events>.ToString(new Events() { EventList = leftDvd.EventList });
+                String leftEvents = XmlSerializer<Events>.ToString(new Events() { EventList = leftDvd.EventList });
 
-                String rightEvents = DVDProfilerSerializer<Events>.ToString(new Events() { EventList = rightDvd.EventList });
+                String rightEvents = XmlSerializer<Events>.ToString(new Events() { EventList = rightDvd.EventList });
 
                 CheckListSpecific(leftIsNewer, leftEvents, rightEvents, leftTextBox, rightTextBox);
             }
@@ -199,9 +199,9 @@
         {
             if (CheckListInGeneral(leftIsNewer, leftList, rightList, leftTextBox, rightTextBox))
             {
-                String leftInfo = DVDProfilerSerializer<CrewInformation>.ToString(new CrewInformation() { CrewList = leftList }, CrewInformation.DefaultEncoding);
+                String leftInfo = XmlSerializer<CrewInformation>.ToString(new CrewInformation() { CrewList = leftList }, CrewInformation.DefaultEncoding);
 
-                String rightInfo = DVDProfilerSerializer<CrewInformation>.ToString(new CrewInformation() { CrewList = rightList }, CrewInformation.DefaultEncoding);
+                String rightInfo = XmlSerializer<CrewInformation>.ToString(new CrewInformation() { CrewList = rightList }, CrewInformation.DefaultEncoding);
 
                 CheckListSpecific(leftIsNewer, leftInfo, rightInfo, leftTextBox, rightTextBox);
             }
@@ -211,9 +211,9 @@
         {
             if (CheckListInGeneral(leftIsNewer, leftList, rightList, leftTextBox, rightTextBox))
             {
-                String leftInfo = DVDProfilerSerializer<CastInformation>.ToString(new CastInformation() { CastList = leftList }, CastInformation.DefaultEncoding);
+                String leftInfo = XmlSerializer<CastInformation>.ToString(new CastInformation() { CastList = leftList }, CastInformation.DefaultEncoding);
 
-                String rightInfo = DVDProfilerSerializer<CastInformation>.ToString(new CastInformation() { CastList = rightList }, CastInformation.DefaultEncoding);
+                String rightInfo = XmlSerializer<CastInformation>.ToString(new CastInformation() { CastList = rightList }, CastInformation.DefaultEncoding);
 
                 CheckListSpecific(leftIsNewer, leftInfo, rightInfo, leftTextBox, rightTextBox);
             }
@@ -287,7 +287,7 @@
 
         private void OnWinMergeButtonClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
@@ -339,20 +339,20 @@
 
         private void OnCloseButtonClick(Object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void OnCrewMembersClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<CrewInformation>.Serialize(leftFile, new CrewInformation { Title = _LeftDvd.Title, CrewList = _LeftDvd.CrewList }, CrewInformation.DefaultEncoding);
+                XmlSerializer<CrewInformation>.Serialize(leftFile, new CrewInformation { Title = _LeftDvd.Title, CrewList = _LeftDvd.CrewList }, CrewInformation.DefaultEncoding);
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<CrewInformation>.Serialize(rightFile, new CrewInformation { Title = _RightDvd.Title, CrewList = _RightDvd.CrewList }, CrewInformation.DefaultEncoding);
+                XmlSerializer<CrewInformation>.Serialize(rightFile, new CrewInformation { Title = _RightDvd.Title, CrewList = _RightDvd.CrewList }, CrewInformation.DefaultEncoding);
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }
@@ -360,15 +360,15 @@
 
         private void OnEventsClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<Events>.Serialize(leftFile, new Events() { EventList = _LeftDvd.EventList });
+                XmlSerializer<Events>.Serialize(leftFile, new Events() { EventList = _LeftDvd.EventList });
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<Events>.Serialize(leftFile, new Events() { EventList = _RightDvd.EventList });
+                XmlSerializer<Events>.Serialize(leftFile, new Events() { EventList = _RightDvd.EventList });
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }
@@ -376,15 +376,15 @@
 
         private void OnCastMembersClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<CastInformation>.Serialize(leftFile, new CastInformation { Title = _LeftDvd.Title, CastList = _LeftDvd.CastList }, CastInformation.DefaultEncoding);
+                XmlSerializer<CastInformation>.Serialize(leftFile, new CastInformation { Title = _LeftDvd.Title, CastList = _LeftDvd.CastList }, CastInformation.DefaultEncoding);
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<CastInformation>.Serialize(rightFile, new CastInformation { Title = _RightDvd.Title, CastList = _RightDvd.CastList }, CastInformation.DefaultEncoding);
+                XmlSerializer<CastInformation>.Serialize(rightFile, new CastInformation { Title = _RightDvd.Title, CastList = _RightDvd.CastList }, CastInformation.DefaultEncoding);
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }
@@ -392,15 +392,15 @@
 
         private void OnLeftTagsClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<Tags>.Serialize(leftFile, new Tags() { TagList = _LeftDvd.TagList });
+                XmlSerializer<Tags>.Serialize(leftFile, new Tags() { TagList = _LeftDvd.TagList });
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<Tags>.Serialize(leftFile, new Tags() { TagList = _RightDvd.TagList });
+                XmlSerializer<Tags>.Serialize(leftFile, new Tags() { TagList = _RightDvd.TagList });
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }
@@ -408,15 +408,15 @@
 
         private void OnLeftMyLinksClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<MyLinks>.Serialize(leftFile, _LeftDvd.MyLinks ?? new MyLinks());
+                XmlSerializer<MyLinks>.Serialize(leftFile, _LeftDvd.MyLinks ?? new MyLinks());
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<MyLinks>.Serialize(leftFile, _RightDvd.MyLinks ?? new MyLinks());
+                XmlSerializer<MyLinks>.Serialize(leftFile, _RightDvd.MyLinks ?? new MyLinks());
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }
@@ -424,15 +424,15 @@
 
         private void OnLeftBoxSetButtonClick(Object sender, EventArgs e)
         {
-            if (CheckWinMergeExistence(out String fullPath))
+            if (this.CheckWinMergeExistence(out String fullPath))
             {
                 String leftFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<BoxSet>.Serialize(leftFile, _LeftDvd.BoxSet ?? new BoxSet());
+                XmlSerializer<BoxSet>.Serialize(leftFile, _LeftDvd.BoxSet ?? new BoxSet());
 
                 String rightFile = Path.GetTempFileName();
 
-                DVDProfilerSerializer<BoxSet>.Serialize(leftFile, _RightDvd.BoxSet ?? new BoxSet());
+                XmlSerializer<BoxSet>.Serialize(leftFile, _RightDvd.BoxSet ?? new BoxSet());
 
                 StartWinMerge(fullPath, leftFile, rightFile);
             }

@@ -6,13 +6,14 @@
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
+    using DoenaSoft.ToolBox.Generics;
     using DVDProfilerHelper;
 
     public static class Program
     {
-        readonly static String _SettingsPath;
+        private static readonly String _SettingsPath;
 
-        readonly static String _SettingsFile;
+        private static readonly String _SettingsFile;
 
         private static Settings _Settings;
 
@@ -80,7 +81,7 @@
 
                 String file = Path.Combine(temp, "ProfileHistoryError.xml");
 
-                DVDProfilerSerializer<ExceptionXml>.Serialize(file, xml);
+                XmlSerializer<ExceptionXml>.Serialize(file, xml);
 
                 MessageBox.Show(String.Format(MessageBoxTexts.CriticalError, ex.Message, file), MessageBoxTexts.CriticalErrorHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -109,7 +110,7 @@
         {
             try
             {
-                _Settings = DVDProfilerSerializer<Settings>.Deserialize(_SettingsFile);
+                _Settings = XmlSerializer<Settings>.Deserialize(_SettingsFile);
             }
             catch (Exception ex)
             {
@@ -126,7 +127,7 @@
                     Directory.CreateDirectory(_SettingsPath);
                 }
 
-                DVDProfilerSerializer<Settings>.Serialize(_SettingsFile, _Settings);
+                XmlSerializer<Settings>.Serialize(_SettingsFile, _Settings);
             }
             catch (Exception ex)
             {

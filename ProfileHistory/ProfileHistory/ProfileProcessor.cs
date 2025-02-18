@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
-    using DVDProfilerHelper;
+    using DoenaSoft.ToolBox.Generics;
     using DVDProfilerXML.Version400;
 
     internal sealed partial class ProfileProcessor
@@ -63,14 +63,14 @@
 
             if ((_IgnoreOldProfiles) && (collectionFiles.Count > 0))
             {
-                InitializeDictionary(collectionFiles[collectionFiles.Count - 1]);
+                this.InitializeDictionary(collectionFiles[collectionFiles.Count - 1]);
             }
 
             IEnumerable<CollectionTuple> collections = (new CollectionsGetter()).Get(collectionFiles);
 
-            AddProfiles(collections, host, collectionFiles.Count);
+            this.AddProfiles(collections, host, collectionFiles.Count);
 
-            Dictionary<DVD, IEnumerable<ProfileTuple>> profiles = Convert();
+            Dictionary<DVD, IEnumerable<ProfileTuple>> profiles = this.Convert();
 
             return (profiles);
         }
@@ -114,7 +114,7 @@
 
                 foreach (CollectionTuple tuple in collections)
                 {
-                    AddProfiles(tuple);
+                    this.AddProfiles(tuple);
 
                     progress.Update();
                 }
@@ -129,7 +129,7 @@
 
             foreach (DVD profile in validProfiles)
             {
-                AddProfiles(profile, tuple.FileInfo);
+                this.AddProfiles(profile, tuple.FileInfo);
             }
         }
 
@@ -140,7 +140,7 @@
         {
             if (_Profiles.TryGetValue(profile, out List<ExtendedProfileTuple> otherVersions) == false)
             {
-                TryAddProfile(profile, fileInfo);
+                this.TryAddProfile(profile, fileInfo);
 
                 return;
             }
@@ -167,7 +167,7 @@
 
         private static ExtendedProfileTuple CreateExtendedProfileTuple(DVD profile, FileInfo fileInfo)
         {
-            String rawProfileXml = DVDProfilerSerializer<DVD>.ToString(profile, Collection.DefaultEncoding);
+            String rawProfileXml = XmlSerializer<DVD>.ToString(profile, Collection.DefaultEncoding);
 
             ExtendedProfileTuple tuple = new ExtendedProfileTuple(fileInfo, rawProfileXml);
 
@@ -184,7 +184,7 @@
                 {
                     String newestXml = kvp.Value.Last().ProfileXml;
 
-                    DVD newest = DVDProfilerSerializer<DVD>.FromString(newestXml, Collection.DefaultEncoding);
+                    DVD newest = XmlSerializer<DVD>.FromString(newestXml, Collection.DefaultEncoding);
 
                     IEnumerable<ProfileTuple> profileList = kvp.Value.Select(p => p.Simplify()).ToList();
 
